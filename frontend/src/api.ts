@@ -90,7 +90,148 @@ export const keyStore = {
   get: () => sessionStorage.getItem("railshield-key") || "",
   set: (key: string) => sessionStorage.setItem("railshield-key", key),
 };
+
+const HOSTED_STATE_KEY = "railshield-hosted-state-v1";
+const HOSTED = import.meta.env.VITE_SERVERLESS === "true";
+export const hostedMode = HOSTED;
+
+type StoredDataset = DatasetSummary & { dataset: Dataset };
+type HostedState = { datasets: StoredDataset[]; jobs: Job[] };
+type HostedJobRequest = {
+  dataset_id: string;
+  kind: string;
+  options: Record<string, unknown>;
+  parent_job_id?: string;
+  disruption?: unknown;
+  count?: number;
+};
+
+function readHostedState(): HostedState {
+  try {
+    const value = JSON.parse(localStorage.getItem(HOSTED_STATE_KEY) || "null");
+    if (Array.isArray(value?.datasets) && Array.isArray(value?.jobs)) return value;
+  } catch {
+    localStorage.removeItem(HOSTED_STATE_KEY);
+  }
+  return { datasets: [], jobs: [] };
+}
+
+function writeHostedState(state: HostedState) {
+  try {
+    localStorage.setItem(
+      HOSTED_STATE_KEY,
+      JSON.stringify({ datasets: state.datasets.slice(0, 10), jobs: state.jobs.slice(0, 30) }),
+    );
+  } catch {
+    throw new Error("Browser storage is full. Export results and clear old site data.");
+  }
+}
+
+async function statelessRequest<T>(path: string, body: unknown): Promise<T> {
+  const response = await fetch(`/api/v1/stateless${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    const data = await response.json().catch(() => ({}));
+    const detail = data.detail;
+    throw new Error(
+      typeof detail === "string"
+        ? detail
+        : Array.isArray(detail)
+          ? detail.map((item) => item.msg).join("; ")
+          : `Hosted planning request failed (${response.status}).`,
+    );
+  }
+  return response.json();
+}
+
+async function hostedApi<T>(path: string, body?: unknown): Promise<T> {
+  const state = readHostedState();
+  if (path === "/datasets" && body === undefined) {
+    return state.datasets.map((item) => ({
+      id: item.id,
+      name: item.name,
+      synthetic: item.synthetic,
+      tasks: item.tasks,
+      created_at: item.created_at,
+    })) as T;
+  }
+  if (path === "/datasets/generate") {
+    const result = await statelessRequest<{ dataset: Dataset }>("/generate", body);
+    const stored: StoredDataset = {
+      id: crypto.randomUUID(),
+      name: result.dataset.name,
+      synthetic: result.dataset.synthetic,
+      tasks: result.dataset.tasks.length,
+      created_at: new Date().toISOString(),
+      dataset: result.dataset,
+    };
+    state.datasets.unshift(stored);
+    writeHostedState(state);
+    return { id: stored.id, dataset: stored.dataset } as T;
+  }
+  if (path === "/datasets" && body !== undefined) {
+    const result = await statelessRequest<{ dataset: Dataset }>("/validate", body);
+    const stored: StoredDataset = {
+      id: crypto.randomUUID(),
+      name: result.dataset.name,
+      synthetic: result.dataset.synthetic,
+      tasks: result.dataset.tasks.length,
+      created_at: new Date().toISOString(),
+      dataset: result.dataset,
+    };
+    state.datasets.unshift(stored);
+    writeHostedState(state);
+    return { id: stored.id, dataset: stored.dataset } as T;
+  }
+  const datasetMatch = path.match(/^\/datasets\/([^/?]+)$/);
+  if (datasetMatch) {
+    const stored = state.datasets.find((item) => item.id === datasetMatch[1]);
+    if (!stored) throw new Error("Dataset not found in this browser.");
+    return { id: stored.id, dataset: stored.dataset } as T;
+  }
+  if (path.startsWith("/jobs?") && body === undefined) {
+    const datasetId = new URLSearchParams(path.split("?")[1]).get("dataset_id");
+    return state.jobs.filter((job) => !datasetId || job.dataset_id === datasetId) as T;
+  }
+  if (path === "/jobs" && body !== undefined) {
+    const request = body as HostedJobRequest;
+    const stored = state.datasets.find((item) => item.id === request.dataset_id);
+    if (!stored) throw new Error("Dataset not found in this browser.");
+    const parent = request.parent_job_id
+      ? state.jobs.find((job) => job.id === request.parent_job_id)
+      : undefined;
+    const effectiveDataset = parent?.result?.dataset || stored.dataset;
+    const result = await statelessRequest<Job["result"]>("/execute", {
+      dataset: effectiveDataset,
+      kind: request.kind,
+      options: request.options,
+      parent_plan: parent?.result?.plan,
+      parent_job_id: request.parent_job_id,
+      disruption: request.disruption,
+      count: request.count,
+    });
+    const job: Job = {
+      id: crypto.randomUUID(),
+      parent_job_id: request.parent_job_id || null,
+      dataset_id: request.dataset_id,
+      kind: request.kind,
+      status: "completed",
+      error: null,
+      created_at: new Date().toISOString(),
+      result,
+    };
+    state.jobs.unshift(job);
+    writeHostedState(state);
+    return job as T;
+  }
+  throw new Error(`Hosted mode does not support ${path}.`);
+}
+
 export async function api<T>(path: string, body?: unknown): Promise<T> {
+  if (HOSTED) return hostedApi<T>(path, body);
   const key = keyStore.get();
   const response = await fetch(`/api/v1${path}`, {
     method: body === undefined ? "GET" : "POST",

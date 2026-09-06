@@ -2,11 +2,12 @@
 
 ## Executed successfully
 
-- Backend: **25 tests passed** on Python 3.13.7. Includes 25 Hypothesis-generated examples within the property test. The opt-in PostgreSQL test skips without its explicit test URL.
+- Backend: **27 tests passed** on Python 3.13.7. Includes 25 Hypothesis-generated examples within the property test, plus the stateless hosted planning flow and hosted resource limits. The opt-in PostgreSQL test skips without its explicit test URL.
 - PostgreSQL 17: initial Alembic migration applied, `alembic check` reported no drift, and the separate concurrent-claim/expired-lease test passed (**1 test**).
 - Ruff lint and formatting, mypy over all 15 application modules: passed.
 - ESLint, strict TypeScript compilation and Vite production build: passed. Cytoscape is loaded as a separate chunk; fonts are local assets.
 - Playwright Chromium: **2 tests passed**. The main test imports JSON, allocates monthly work, generates a verified plan, runs 20 stress scenarios, recovers, exports and opens history. The second tests mobile navigation and page width.
+- The same two Playwright tests passed with `VITE_SERVERLESS=true`, exercising browser-local history and the stateless Vercel endpoints.
 - Axe WCAG 2 A/AA automated scan on the populated desktop command center: **zero violations after contrast fixes**. This is an automated page scan, not a full accessibility certification.
 - npm installation audit: zero reported vulnerabilities for the resolved dependency tree at build time.
 - Compose and GitHub Actions YAML parsed successfully.

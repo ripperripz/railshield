@@ -20,3 +20,4 @@ coverage/
 datasets/generated/
 .DS_Store
 *.log
+.vercel

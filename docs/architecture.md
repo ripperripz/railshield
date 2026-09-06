@@ -25,6 +25,15 @@ A 15-minute lease marks abandoned jobs failed when a worker next polls. Jobs are
 
 SQLite is a single-worker development path. PostgreSQL supports multiple worker processes. Queue admission uses a PostgreSQL transaction advisory lock and rejects submissions above the configured active-job limit with 429. There is no distributed scheduler, broker, WebSocket layer or hidden background thread in the API.
 
+## Vercel profile
+
+Vercel uses `api/index.py`, a root dependency manifest, and the static Vite output in
+`frontend/dist`. It does not run the durable worker. The frontend switches to a stateless adapter at
+build time: datasets and job history live in browser local storage, and complete immutable inputs are
+posted to bounded `/api/v1/stateless/*` endpoints. This profile is suitable for the public SIH demo;
+it does not claim shared persistence. The PostgreSQL/worker profile remains the production reference
+for collaborative planning.
+
 ## Immutable recovery
 
 Recovery requests reference a completed, verified job from the same dataset lineage. The API snapshots the parent's plan and effective dataset into the new request. Recovery outputs the disrupted dataset as well as the new plan. Subsequent recovery/stress operates on that snapshot, preserving accumulated disruptions. The original dataset and original plan remain unchanged.

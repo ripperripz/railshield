@@ -7,7 +7,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="RAILSHIELD_", env_file=".env", extra="ignore")
-    environment: Literal["development", "production"] = "development"
+    environment: Literal["development", "production", "serverless"] = "development"
     database_url: str = "sqlite:///./railshield.db"
     api_key: str = ""
     cors_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]

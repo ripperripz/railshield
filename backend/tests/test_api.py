@@ -82,3 +82,51 @@ def test_recovery_lineage_and_locks(client):
     assert result["result"]["dataset"]["tasks"][0]["duration"] == (
         dataset["dataset"]["tasks"][0]["duration"] + 1
     )
+
+
+def test_stateless_hosted_flow(client):
+    generated = client.post(
+        "/api/v1/stateless/generate",
+        json={"tasks": 6, "sections": 2, "days": 7, "trains": 4, "seed": 26027},
+    )
+    assert generated.status_code == 200
+    dataset = generated.json()["dataset"]
+    monthly = client.post(
+        "/api/v1/stateless/execute",
+        json={"dataset": dataset, "kind": "monthly", "options": {"time_limit": 2}},
+    )
+    assert monthly.status_code == 200
+    plan = client.post(
+        "/api/v1/stateless/execute",
+        json={
+            "dataset": dataset,
+            "kind": "optimize",
+            "options": {
+                "time_limit": 2,
+                "commitments": monthly.json()["commitments"],
+            },
+        },
+    )
+    assert plan.status_code == 200
+    assert plan.json()["plan"]["verified"]
+    stress = client.post(
+        "/api/v1/stateless/execute",
+        json={
+            "dataset": dataset,
+            "kind": "stress",
+            "options": {"time_limit": 2},
+            "parent_plan": plan.json()["plan"],
+            "parent_job_id": "browser-parent",
+            "count": 5,
+        },
+    )
+    assert stress.status_code == 200
+    assert stress.json()["evaluated"] == 5
+
+
+def test_stateless_hosted_limits(client):
+    response = client.post(
+        "/api/v1/stateless/generate",
+        json={"tasks": 61, "sections": 2, "days": 7, "trains": 4},
+    )
+    assert response.status_code == 422

@@ -34,6 +34,23 @@ Open [RailShield on port 8080](http://localhost:8080). In Connection settings, e
 
 Production configuration fails closed unless a key of at least 32 characters and PostgreSQL are configured. Authentication is a shared deployment key, not multi-user identity or role-based authorization. See [operations](docs/operations.md) before deployment.
 
+## Vercel hosted demo
+
+The repository also has a Vercel-native deployment profile. Vercel builds the Vite app from
+`frontend/` and exposes `api/index.py` as one FastAPI function. Hosted planning runs execute
+synchronously and keep datasets and plan history in browser local storage. Each request carries its
+complete validated snapshot, so the hosted demo does not depend on Vercel's ephemeral filesystem or
+a worker that cannot stay alive between invocations.
+
+```bash
+npx vercel@latest deploy --prod
+```
+
+The public profile is intentionally bounded to 60 tasks, 28 days, 20 stress scenarios, and eight
+seconds per individual CP-SAT solve. Browser-local history is specific to one browser and origin;
+export important results. Use the PostgreSQL deployment for shared durable history, multi-user
+operations, or larger instances.
+
 ## Commands
 
 ```bash

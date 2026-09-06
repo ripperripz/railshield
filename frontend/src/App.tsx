@@ -29,6 +29,7 @@ import {
   api,
   duration,
   exportJson,
+  hostedMode,
   keyStore,
   slotLabel,
   type Dataset,
@@ -246,9 +247,11 @@ export default function App() {
           </span>
         </div>
         <div className="sidebar-bottom">
-          <button onClick={() => setShowKey(!showKey)}>
-            <CircleHelp size={17} /> Connection settings
-          </button>
+          {!hostedMode && (
+            <button onClick={() => setShowKey(!showKey)}>
+              <CircleHelp size={17} /> Connection settings
+            </button>
+          )}
           <div className="profile">
             <span>RS</span>
             <div>
@@ -274,9 +277,11 @@ export default function App() {
               <SlidersHorizontal size={14} />
             </button>
             <span className="status-dot" />
-            {dataset?.synthetic
-              ? "Synthetic environment"
-              : "Planning environment"}
+            {hostedMode
+              ? "Hosted demo · browser-local history"
+              : dataset?.synthetic
+                ? "Synthetic environment"
+                : "Planning environment"}
             <span className="vertical-rule" />
             <span>IST · UTC +05:30</span>
           </div>

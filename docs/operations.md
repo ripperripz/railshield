@@ -4,6 +4,11 @@
 
 Backend settings use `RAILSHIELD_` prefixes. `DATABASE_URL`, `ENVIRONMENT`, `API_KEY`, `CORS_ORIGINS`, `MAX_PENDING_JOBS`, `MAX_BODY_BYTES` and `JOB_LEASE_SECONDS` are defined in `backend/app/config.py`. Local `.env` loading is relative to the process working directory; the Makefile runs backend commands from `backend/`. Compose injects variables from the root `.env` explicitly.
 
+Vercel sets the application to `serverless` mode in `api/index.py`. Do not configure SQLite there:
+Vercel's filesystem is ephemeral. The hosted UI uses browser-local history and synchronous stateless
+solver endpoints. A future shared Vercel deployment should attach a managed PostgreSQL database and
+a supported queue/worker service rather than weakening this boundary.
+
 Run `alembic upgrade head` before starting production services. `alembic check` detects model/schema drift. Never use development `create_all` to upgrade a production database. The initial downgrade drops data; back up before using any downgrade.
 
 ## Health and failures

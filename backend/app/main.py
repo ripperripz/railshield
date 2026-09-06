@@ -15,6 +15,7 @@ from app.config import settings
 from app.db import AuditRow, DatasetRow, JobRow, engine, initialize, session_factory
 from app.domain import Contract, Dataset, Disruption, GenerateRequest, SolveOptions
 from app.ingestion.synthetic import generate
+from app.serverless import router as serverless_router
 
 
 class BodyLimit:
@@ -82,6 +83,10 @@ def authenticate(credentials: Annotated[HTTPAuthorizationCredentials | None, Dep
 
 
 protected = [Depends(authenticate)]
+app.include_router(
+    serverless_router,
+    dependencies=[] if settings().environment == "serverless" else protected,
+)
 
 
 @app.get("/health/live")
@@ -91,6 +96,8 @@ def live():
 
 @app.get("/health/ready")
 def ready():
+    if settings().environment == "serverless":
+        return {"status": "ready", "environment": "serverless"}
     try:
         with engine().connect() as connection:
             connection.execute(select(DatasetRow.id).limit(1))
