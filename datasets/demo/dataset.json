@@ -1,0 +1,1074 @@
+{
+  "schema_version": 1,
+  "name": "Northern corridor · seed 42",
+  "synthetic": true,
+  "seed": 42,
+  "epoch": "2026-09-07T00:00:00+05:30",
+  "slot_minutes": 15,
+  "horizon": 2688,
+  "sections": [
+    {
+      "id": "SEC-01",
+      "name": "Corridor 01",
+      "from_station": "Ambala",
+      "to_station": "Barara",
+      "windows": [
+        {
+          "start": 4,
+          "end": 28
+        },
+        {
+          "start": 100,
+          "end": 124
+        },
+        {
+          "start": 196,
+          "end": 220
+        },
+        {
+          "start": 292,
+          "end": 316
+        },
+        {
+          "start": 388,
+          "end": 412
+        },
+        {
+          "start": 484,
+          "end": 508
+        },
+        {
+          "start": 580,
+          "end": 604
+        },
+        {
+          "start": 676,
+          "end": 700
+        },
+        {
+          "start": 772,
+          "end": 796
+        },
+        {
+          "start": 868,
+          "end": 892
+        },
+        {
+          "start": 964,
+          "end": 988
+        },
+        {
+          "start": 1060,
+          "end": 1084
+        },
+        {
+          "start": 1156,
+          "end": 1180
+        },
+        {
+          "start": 1252,
+          "end": 1276
+        },
+        {
+          "start": 1348,
+          "end": 1372
+        },
+        {
+          "start": 1444,
+          "end": 1468
+        },
+        {
+          "start": 1540,
+          "end": 1564
+        },
+        {
+          "start": 1636,
+          "end": 1660
+        },
+        {
+          "start": 1732,
+          "end": 1756
+        },
+        {
+          "start": 1828,
+          "end": 1852
+        },
+        {
+          "start": 1924,
+          "end": 1948
+        },
+        {
+          "start": 2020,
+          "end": 2044
+        },
+        {
+          "start": 2116,
+          "end": 2140
+        },
+        {
+          "start": 2212,
+          "end": 2236
+        },
+        {
+          "start": 2308,
+          "end": 2332
+        },
+        {
+          "start": 2404,
+          "end": 2428
+        },
+        {
+          "start": 2500,
+          "end": 2524
+        },
+        {
+          "start": 2596,
+          "end": 2620
+        }
+      ]
+    },
+    {
+      "id": "SEC-02",
+      "name": "Corridor 02",
+      "from_station": "Barara",
+      "to_station": "Jagadhri",
+      "windows": [
+        {
+          "start": 4,
+          "end": 28
+        },
+        {
+          "start": 100,
+          "end": 124
+        },
+        {
+          "start": 196,
+          "end": 220
+        },
+        {
+          "start": 292,
+          "end": 316
+        },
+        {
+          "start": 388,
+          "end": 412
+        },
+        {
+          "start": 484,
+          "end": 508
+        },
+        {
+          "start": 580,
+          "end": 604
+        },
+        {
+          "start": 676,
+          "end": 700
+        },
+        {
+          "start": 772,
+          "end": 796
+        },
+        {
+          "start": 868,
+          "end": 892
+        },
+        {
+          "start": 964,
+          "end": 988
+        },
+        {
+          "start": 1060,
+          "end": 1084
+        },
+        {
+          "start": 1156,
+          "end": 1180
+        },
+        {
+          "start": 1252,
+          "end": 1276
+        },
+        {
+          "start": 1348,
+          "end": 1372
+        },
+        {
+          "start": 1444,
+          "end": 1468
+        },
+        {
+          "start": 1540,
+          "end": 1564
+        },
+        {
+          "start": 1636,
+          "end": 1660
+        },
+        {
+          "start": 1732,
+          "end": 1756
+        },
+        {
+          "start": 1828,
+          "end": 1852
+        },
+        {
+          "start": 1924,
+          "end": 1948
+        },
+        {
+          "start": 2020,
+          "end": 2044
+        },
+        {
+          "start": 2116,
+          "end": 2140
+        },
+        {
+          "start": 2212,
+          "end": 2236
+        },
+        {
+          "start": 2308,
+          "end": 2332
+        },
+        {
+          "start": 2404,
+          "end": 2428
+        },
+        {
+          "start": 2500,
+          "end": 2524
+        },
+        {
+          "start": 2596,
+          "end": 2620
+        }
+      ]
+    },
+    {
+      "id": "SEC-03",
+      "name": "Corridor 03",
+      "from_station": "Jagadhri",
+      "to_station": "Saharanpur",
+      "windows": [
+        {
+          "start": 4,
+          "end": 28
+        },
+        {
+          "start": 100,
+          "end": 124
+        },
+        {
+          "start": 196,
+          "end": 220
+        },
+        {
+          "start": 292,
+          "end": 316
+        },
+        {
+          "start": 388,
+          "end": 412
+        },
+        {
+          "start": 484,
+          "end": 508
+        },
+        {
+          "start": 580,
+          "end": 604
+        },
+        {
+          "start": 676,
+          "end": 700
+        },
+        {
+          "start": 772,
+          "end": 796
+        },
+        {
+          "start": 868,
+          "end": 892
+        },
+        {
+          "start": 964,
+          "end": 988
+        },
+        {
+          "start": 1060,
+          "end": 1084
+        },
+        {
+          "start": 1156,
+          "end": 1180
+        },
+        {
+          "start": 1252,
+          "end": 1276
+        },
+        {
+          "start": 1348,
+          "end": 1372
+        },
+        {
+          "start": 1444,
+          "end": 1468
+        },
+        {
+          "start": 1540,
+          "end": 1564
+        },
+        {
+          "start": 1636,
+          "end": 1660
+        },
+        {
+          "start": 1732,
+          "end": 1756
+        },
+        {
+          "start": 1828,
+          "end": 1852
+        },
+        {
+          "start": 1924,
+          "end": 1948
+        },
+        {
+          "start": 2020,
+          "end": 2044
+        },
+        {
+          "start": 2116,
+          "end": 2140
+        },
+        {
+          "start": 2212,
+          "end": 2236
+        },
+        {
+          "start": 2308,
+          "end": 2332
+        },
+        {
+          "start": 2404,
+          "end": 2428
+        },
+        {
+          "start": 2500,
+          "end": 2524
+        },
+        {
+          "start": 2596,
+          "end": 2620
+        }
+      ]
+    },
+    {
+      "id": "SEC-04",
+      "name": "Corridor 04",
+      "from_station": "Saharanpur",
+      "to_station": "Roorkee",
+      "windows": [
+        {
+          "start": 4,
+          "end": 28
+        },
+        {
+          "start": 100,
+          "end": 124
+        },
+        {
+          "start": 196,
+          "end": 220
+        },
+        {
+          "start": 292,
+          "end": 316
+        },
+        {
+          "start": 388,
+          "end": 412
+        },
+        {
+          "start": 484,
+          "end": 508
+        },
+        {
+          "start": 580,
+          "end": 604
+        },
+        {
+          "start": 676,
+          "end": 700
+        },
+        {
+          "start": 772,
+          "end": 796
+        },
+        {
+          "start": 868,
+          "end": 892
+        },
+        {
+          "start": 964,
+          "end": 988
+        },
+        {
+          "start": 1060,
+          "end": 1084
+        },
+        {
+          "start": 1156,
+          "end": 1180
+        },
+        {
+          "start": 1252,
+          "end": 1276
+        },
+        {
+          "start": 1348,
+          "end": 1372
+        },
+        {
+          "start": 1444,
+          "end": 1468
+        },
+        {
+          "start": 1540,
+          "end": 1564
+        },
+        {
+          "start": 1636,
+          "end": 1660
+        },
+        {
+          "start": 1732,
+          "end": 1756
+        },
+        {
+          "start": 1828,
+          "end": 1852
+        },
+        {
+          "start": 1924,
+          "end": 1948
+        },
+        {
+          "start": 2020,
+          "end": 2044
+        },
+        {
+          "start": 2116,
+          "end": 2140
+        },
+        {
+          "start": 2212,
+          "end": 2236
+        },
+        {
+          "start": 2308,
+          "end": 2332
+        },
+        {
+          "start": 2404,
+          "end": 2428
+        },
+        {
+          "start": 2500,
+          "end": 2524
+        },
+        {
+          "start": 2596,
+          "end": 2620
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "CREW-ENG",
+      "name": "ENG field teams",
+      "capacity": 3
+    },
+    {
+      "id": "CREW-TRD",
+      "name": "TRD field teams",
+      "capacity": 3
+    },
+    {
+      "id": "CREW-SNT",
+      "name": "SNT field teams",
+      "capacity": 3
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ENG-001",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-01",
+      "activity": "ENG",
+      "duration": 3,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 4,
+      "required": true,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-002",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-01",
+      "activity": "SNT",
+      "duration": 5,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 5,
+      "required": true,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-003",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-01",
+      "activity": "TRD",
+      "duration": 4,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 5,
+      "required": true,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "ENG-004",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-02",
+      "activity": "ENG",
+      "duration": 3,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 9,
+      "required": true,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-005",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-02",
+      "activity": "SNT",
+      "duration": 3,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 8,
+      "required": true,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-006",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-02",
+      "activity": "TRD",
+      "duration": 6,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 4,
+      "required": true,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "ENG-007",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-03",
+      "activity": "ENG",
+      "duration": 3,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 4,
+      "required": false,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-008",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-03",
+      "activity": "SNT",
+      "duration": 4,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 5,
+      "required": true,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-009",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-03",
+      "activity": "TRD",
+      "duration": 3,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 8,
+      "required": true,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "ENG-010",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-04",
+      "activity": "ENG",
+      "duration": 4,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 9,
+      "required": true,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-011",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-04",
+      "activity": "SNT",
+      "duration": 6,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 5,
+      "required": true,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-012",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-04",
+      "activity": "TRD",
+      "duration": 6,
+      "earliest": 0,
+      "deadline": 672,
+      "priority": 8,
+      "required": true,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "ENG-013",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-01",
+      "activity": "ENG",
+      "duration": 5,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 10,
+      "required": true,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-014",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-01",
+      "activity": "SNT",
+      "duration": 3,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 10,
+      "required": false,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-015",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-01",
+      "activity": "TRD",
+      "duration": 4,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 9,
+      "required": true,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "ENG-016",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-02",
+      "activity": "ENG",
+      "duration": 6,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 6,
+      "required": true,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-017",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-02",
+      "activity": "SNT",
+      "duration": 5,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 5,
+      "required": true,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-018",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-02",
+      "activity": "TRD",
+      "duration": 4,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 10,
+      "required": true,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "ENG-019",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-03",
+      "activity": "ENG",
+      "duration": 5,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 4,
+      "required": true,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-020",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-03",
+      "activity": "SNT",
+      "duration": 3,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 7,
+      "required": true,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-021",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-03",
+      "activity": "TRD",
+      "duration": 3,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 6,
+      "required": false,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "ENG-022",
+      "title": "Track geometry correction",
+      "department": "ENG",
+      "section_id": "SEC-04",
+      "activity": "ENG",
+      "duration": 5,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 8,
+      "required": true,
+      "demands": {
+        "CREW-ENG": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "SNT-023",
+      "title": "Signal servicing",
+      "department": "SNT",
+      "section_id": "SEC-04",
+      "activity": "SNT",
+      "duration": 5,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 10,
+      "required": true,
+      "demands": {
+        "CREW-SNT": 1
+      },
+      "predecessors": []
+    },
+    {
+      "id": "TRD-024",
+      "title": "OHE inspection",
+      "department": "TRD",
+      "section_id": "SEC-04",
+      "activity": "TRD",
+      "duration": 3,
+      "earliest": 672,
+      "deadline": 1344,
+      "priority": 9,
+      "required": true,
+      "demands": {
+        "CREW-TRD": 1
+      },
+      "predecessors": []
+    }
+  ],
+  "trains": [
+    {
+      "id": "TRAIN-001",
+      "section_id": "SEC-01",
+      "start": 1392,
+      "end": 1394
+    },
+    {
+      "id": "TRAIN-002",
+      "section_id": "SEC-03",
+      "start": 1155,
+      "end": 1157
+    },
+    {
+      "id": "TRAIN-003",
+      "section_id": "SEC-03",
+      "start": 2568,
+      "end": 2570
+    },
+    {
+      "id": "TRAIN-004",
+      "section_id": "SEC-01",
+      "start": 1740,
+      "end": 1742
+    },
+    {
+      "id": "TRAIN-005",
+      "section_id": "SEC-02",
+      "start": 168,
+      "end": 170
+    },
+    {
+      "id": "TRAIN-006",
+      "section_id": "SEC-01",
+      "start": 2328,
+      "end": 2330
+    },
+    {
+      "id": "TRAIN-007",
+      "section_id": "SEC-01",
+      "start": 2604,
+      "end": 2606
+    },
+    {
+      "id": "TRAIN-008",
+      "section_id": "SEC-04",
+      "start": 1176,
+      "end": 1178
+    },
+    {
+      "id": "TRAIN-009",
+      "section_id": "SEC-02",
+      "start": 1944,
+      "end": 1946
+    },
+    {
+      "id": "TRAIN-010",
+      "section_id": "SEC-02",
+      "start": 1080,
+      "end": 1082
+    },
+    {
+      "id": "TRAIN-011",
+      "section_id": "SEC-01",
+      "start": 2040,
+      "end": 2042
+    },
+    {
+      "id": "TRAIN-012",
+      "section_id": "SEC-02",
+      "start": 1896,
+      "end": 1898
+    },
+    {
+      "id": "TRAIN-013",
+      "section_id": "SEC-02",
+      "start": 1704,
+      "end": 1706
+    },
+    {
+      "id": "TRAIN-014",
+      "section_id": "SEC-04",
+      "start": 516,
+      "end": 518
+    },
+    {
+      "id": "TRAIN-015",
+      "section_id": "SEC-02",
+      "start": 840,
+      "end": 842
+    },
+    {
+      "id": "TRAIN-016",
+      "section_id": "SEC-01",
+      "start": 2040,
+      "end": 2042
+    },
+    {
+      "id": "TRAIN-017",
+      "section_id": "SEC-03",
+      "start": 675,
+      "end": 677
+    },
+    {
+      "id": "TRAIN-018",
+      "section_id": "SEC-01",
+      "start": 1176,
+      "end": 1178
+    },
+    {
+      "id": "TRAIN-019",
+      "section_id": "SEC-03",
+      "start": 624,
+      "end": 626
+    },
+    {
+      "id": "TRAIN-020",
+      "section_id": "SEC-04",
+      "start": 648,
+      "end": 650
+    },
+    {
+      "id": "TRAIN-021",
+      "section_id": "SEC-04",
+      "start": 1224,
+      "end": 1226
+    },
+    {
+      "id": "TRAIN-022",
+      "section_id": "SEC-02",
+      "start": 408,
+      "end": 410
+    },
+    {
+      "id": "TRAIN-023",
+      "section_id": "SEC-03",
+      "start": 744,
+      "end": 746
+    },
+    {
+      "id": "TRAIN-024",
+      "section_id": "SEC-04",
+      "start": 2256,
+      "end": 2258
+    },
+    {
+      "id": "TRAIN-025",
+      "section_id": "SEC-03",
+      "start": 1764,
+      "end": 1766
+    },
+    {
+      "id": "TRAIN-026",
+      "section_id": "SEC-04",
+      "start": 684,
+      "end": 686
+    },
+    {
+      "id": "TRAIN-027",
+      "section_id": "SEC-01",
+      "start": 195,
+      "end": 197
+    },
+    {
+      "id": "TRAIN-028",
+      "section_id": "SEC-02",
+      "start": 456,
+      "end": 458
+    }
+  ],
+  "compatible": [
+    [
+      "ENG",
+      "SNT"
+    ],
+    [
+      "ENG",
+      "TRD"
+    ]
+  ]
+}

@@ -1,0 +1,25 @@
+[project]
+name = "railshield"
+version = "0.1.0"
+description = "Verified multi-department railway possession planning"
+requires-python = ">=3.12,<3.14"
+dependencies = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.34,<1", "pydantic-settings>=2.7,<3", "sqlalchemy>=2.0,<3", "alembic>=1.14,<2", "psycopg[binary]>=3.2,<4", "ortools>=9.12,<10"]
+[dependency-groups]
+dev = ["pytest>=8,<10", "hypothesis>=6,<7", "httpx>=0.28,<1", "ruff>=0.11,<1", "mypy>=1.15,<2"]
+[project.scripts]
+railshield = "app.cli:main"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+[tool.ruff]
+line-length = 100
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+check_untyped_defs = true
+[tool.pytest.ini_options]
+testpaths = ["tests"]

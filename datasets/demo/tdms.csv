@@ -1,0 +1,9 @@
+id,title,department,section_id,activity,duration,earliest,deadline,priority,required,demands,predecessors
+TRD-003,OHE inspection,TRD,SEC-01,TRD,4,0,672,5,True,"{""CREW-TRD"": 1}",[]
+TRD-006,OHE inspection,TRD,SEC-02,TRD,6,0,672,4,True,"{""CREW-TRD"": 1}",[]
+TRD-009,OHE inspection,TRD,SEC-03,TRD,3,0,672,8,True,"{""CREW-TRD"": 1}",[]
+TRD-012,OHE inspection,TRD,SEC-04,TRD,6,0,672,8,True,"{""CREW-TRD"": 1}",[]
+TRD-015,OHE inspection,TRD,SEC-01,TRD,4,672,1344,9,True,"{""CREW-TRD"": 1}",[]
+TRD-018,OHE inspection,TRD,SEC-02,TRD,4,672,1344,10,True,"{""CREW-TRD"": 1}",[]
+TRD-021,OHE inspection,TRD,SEC-03,TRD,3,672,1344,6,False,"{""CREW-TRD"": 1}",[]
+TRD-024,OHE inspection,TRD,SEC-04,TRD,3,672,1344,9,True,"{""CREW-TRD"": 1}",[]

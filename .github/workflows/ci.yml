@@ -1,0 +1,82 @@
+name: RailShield CI
+on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: railshield_test
+          POSTGRES_USER: railshield
+          POSTGRES_PASSWORD: disposable_ci_password
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U railshield -d railshield_test"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      RAILSHIELD_TEST_POSTGRES_URL: postgresql+psycopg://railshield:disposable_ci_password@localhost:5432/railshield_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.12'
+          enable-cache: true
+      - run: uv sync --frozen
+        working-directory: backend
+      - run: uv run ruff check . && uv run ruff format --check . && uv run mypy app
+        working-directory: backend
+      - run: uv run alembic upgrade head && uv run alembic check
+        working-directory: backend
+        env:
+          RAILSHIELD_DATABASE_URL: ${{ env.RAILSHIELD_TEST_POSTGRES_URL }}
+      - run: uv run pytest -q
+        working-directory: backend
+      - run: uv run python ../scripts/benchmark_solver.py --output ../datasets/benchmark-ci.json
+        working-directory: backend
+      - uses: actions/upload-artifact@v4
+        with:
+          name: solver-benchmark
+          path: datasets/benchmark-ci.json
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: uv sync --frozen
+        working-directory: backend
+      - run: npm ci && npm run lint && npm run build
+        working-directory: frontend
+      - run: npx playwright install --with-deps chromium
+        working-directory: frontend
+      - run: npm run test:e2e
+        working-directory: frontend
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: frontend/playwright-report
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          printf 'POSTGRES_PASSWORD=%s\nRAILSHIELD_API_KEY=%s\n' "$(openssl rand -hex 24)" "$(openssl rand -hex 32)" > .env
+          docker compose up --build -d --wait --wait-timeout 240
+          curl --fail http://localhost:8080/health/ready
+      - run: docker compose logs
+        if: failure()
+      - run: docker compose down -v
+        if: always()

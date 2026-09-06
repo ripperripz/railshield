@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "project": {
+    "name": "railshield",
+    "productType": "Railway maintenance planning workstation",
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "TanStack Query",
+      "Cytoscape"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "frontend/src/styles.css"
+    ],
+    "components": [],
+    "assets": [],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "primary": "#08766b",
+      "ink": "#142c38",
+      "background": "#f4f6f8"
+    },
+    "typography": {},
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {},
+    "density": "compact"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [],
+    "avoid": []
+  },
+  "decisions": [
+    "Light operational canvas, dark navigation, teal coordinated planning, distinct department colors.",
+    "Local fonts and SVG icons; no remote assets needed at runtime.",
+    "Accessible slot timeline and maintenance register backed by actual solver results."
+  ],
+  "evidence": [],
+  "generatedAt": "2026-09-06T09:29:29.360Z"
+}

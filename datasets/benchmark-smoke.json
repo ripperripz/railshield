@@ -1,0 +1,41 @@
+{
+  "seed": 42,
+  "tasks": 12,
+  "python": "3.13.7",
+  "ortools": "9.15.6755",
+  "results": {
+    "independent": {
+      "status": "FEASIBLE",
+      "metrics": {
+        "downtime_minutes": 750,
+        "blocks": 6,
+        "scheduled_tasks": 12,
+        "deferred_tasks": 0,
+        "availability_percent": 98.13988095238095,
+        "train_conflicts": 0,
+        "shared_blocks": 0
+      },
+      "objective": 530.0,
+      "bound": 170.0,
+      "wall_seconds": 3.025184917001752,
+      "solver_seconds": 3.000874
+    },
+    "coordinated": {
+      "status": "FEASIBLE",
+      "metrics": {
+        "downtime_minutes": 555,
+        "blocks": 6,
+        "scheduled_tasks": 12,
+        "deferred_tasks": 0,
+        "availability_percent": 98.62351190476191,
+        "train_conflicts": 0,
+        "shared_blocks": 4
+      },
+      "objective": 400.0,
+      "bound": 170.0,
+      "wall_seconds": 3.0226595000131056,
+      "solver_seconds": 3.0005390000000003
+    }
+  },
+  "note": "Synthetic experiment; timings vary by hardware. FEASIBLE is not OPTIMAL."
+}

@@ -1,0 +1,371 @@
+{
+  "$defs": {
+    "Resource": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "capacity": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Capacity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "capacity"
+      ],
+      "title": "Resource",
+      "type": "object"
+    },
+    "Section": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "from_station": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "From Station",
+          "type": "string"
+        },
+        "to_station": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "To Station",
+          "type": "string"
+        },
+        "windows": {
+          "items": {
+            "$ref": "#/$defs/Window"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Windows",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "from_station",
+        "to_station",
+        "windows"
+      ],
+      "title": "Section",
+      "type": "object"
+    },
+    "Task": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "department": {
+          "enum": [
+            "ENG",
+            "TRD",
+            "SNT"
+          ],
+          "title": "Department",
+          "type": "string"
+        },
+        "section_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "title": "Section Id",
+          "type": "string"
+        },
+        "activity": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "title": "Activity",
+          "type": "string"
+        },
+        "duration": {
+          "maximum": 192,
+          "minimum": 1,
+          "title": "Duration",
+          "type": "integer"
+        },
+        "earliest": {
+          "default": 0,
+          "maximum": 2976,
+          "minimum": 0,
+          "title": "Earliest",
+          "type": "integer"
+        },
+        "deadline": {
+          "maximum": 2976,
+          "minimum": 0,
+          "title": "Deadline",
+          "type": "integer"
+        },
+        "priority": {
+          "default": 5,
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Priority",
+          "type": "integer"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "demands": {
+          "patternProperties": {
+            "^[A-Za-z0-9_-]+$": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "propertyNames": {
+            "maxLength": 80,
+            "minLength": 1
+          },
+          "title": "Demands",
+          "type": "object"
+        },
+        "predecessors": {
+          "items": {
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Predecessors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "department",
+        "section_id",
+        "activity",
+        "duration",
+        "deadline"
+      ],
+      "title": "Task",
+      "type": "object"
+    },
+    "Train": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "section_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "title": "Section Id",
+          "type": "string"
+        },
+        "start": {
+          "maximum": 2976,
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "maximum": 2976,
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "section_id",
+        "start",
+        "end"
+      ],
+      "title": "Train",
+      "type": "object"
+    },
+    "Window": {
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "maximum": 2976,
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "maximum": 2976,
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "title": "Window",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "name": {
+      "maxLength": 120,
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "synthetic": {
+      "default": true,
+      "title": "Synthetic",
+      "type": "boolean"
+    },
+    "seed": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Seed"
+    },
+    "epoch": {
+      "format": "date-time",
+      "title": "Epoch",
+      "type": "string"
+    },
+    "slot_minutes": {
+      "const": 15,
+      "default": 15,
+      "title": "Slot Minutes",
+      "type": "integer"
+    },
+    "horizon": {
+      "maximum": 2976,
+      "minimum": 1,
+      "title": "Horizon",
+      "type": "integer"
+    },
+    "sections": {
+      "items": {
+        "$ref": "#/$defs/Section"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Sections",
+      "type": "array"
+    },
+    "resources": {
+      "items": {
+        "$ref": "#/$defs/Resource"
+      },
+      "maxItems": 30,
+      "title": "Resources",
+      "type": "array"
+    },
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/Task"
+      },
+      "maxItems": 200,
+      "minItems": 1,
+      "title": "Tasks",
+      "type": "array"
+    },
+    "trains": {
+      "items": {
+        "$ref": "#/$defs/Train"
+      },
+      "maxItems": 2000,
+      "title": "Trains",
+      "type": "array"
+    },
+    "compatible": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "type": "string"
+          },
+          {
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "type": "string"
+          }
+        ],
+        "type": "array"
+      },
+      "maxItems": 100,
+      "title": "Compatible",
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "epoch",
+    "horizon",
+    "sections",
+    "resources",
+    "tasks"
+  ],
+  "title": "Dataset",
+  "type": "object"
+}

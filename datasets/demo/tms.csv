@@ -1,0 +1,9 @@
+id,title,department,section_id,activity,duration,earliest,deadline,priority,required,demands,predecessors
+ENG-001,Track geometry correction,ENG,SEC-01,ENG,3,0,672,4,True,"{""CREW-ENG"": 1}",[]
+ENG-004,Track geometry correction,ENG,SEC-02,ENG,3,0,672,9,True,"{""CREW-ENG"": 1}",[]
+ENG-007,Track geometry correction,ENG,SEC-03,ENG,3,0,672,4,False,"{""CREW-ENG"": 1}",[]
+ENG-010,Track geometry correction,ENG,SEC-04,ENG,4,0,672,9,True,"{""CREW-ENG"": 1}",[]
+ENG-013,Track geometry correction,ENG,SEC-01,ENG,5,672,1344,10,True,"{""CREW-ENG"": 1}",[]
+ENG-016,Track geometry correction,ENG,SEC-02,ENG,6,672,1344,6,True,"{""CREW-ENG"": 1}",[]
+ENG-019,Track geometry correction,ENG,SEC-03,ENG,5,672,1344,4,True,"{""CREW-ENG"": 1}",[]
+ENG-022,Track geometry correction,ENG,SEC-04,ENG,5,672,1344,8,True,"{""CREW-ENG"": 1}",[]

@@ -1,0 +1,5 @@
+id,name,from_station,to_station
+SEC-01,Corridor 01,Ambala,Barara
+SEC-02,Corridor 02,Barara,Jagadhri
+SEC-03,Corridor 03,Jagadhri,Saharanpur
+SEC-04,Corridor 04,Saharanpur,Roorkee

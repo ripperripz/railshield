@@ -1,0 +1,9 @@
+id,title,department,section_id,activity,duration,earliest,deadline,priority,required,demands,predecessors
+SNT-002,Signal servicing,SNT,SEC-01,SNT,5,0,672,5,True,"{""CREW-SNT"": 1}",[]
+SNT-005,Signal servicing,SNT,SEC-02,SNT,3,0,672,8,True,"{""CREW-SNT"": 1}",[]
+SNT-008,Signal servicing,SNT,SEC-03,SNT,4,0,672,5,True,"{""CREW-SNT"": 1}",[]
+SNT-011,Signal servicing,SNT,SEC-04,SNT,6,0,672,5,True,"{""CREW-SNT"": 1}",[]
+SNT-014,Signal servicing,SNT,SEC-01,SNT,3,672,1344,10,False,"{""CREW-SNT"": 1}",[]
+SNT-017,Signal servicing,SNT,SEC-02,SNT,5,672,1344,5,True,"{""CREW-SNT"": 1}",[]
+SNT-020,Signal servicing,SNT,SEC-03,SNT,3,672,1344,7,True,"{""CREW-SNT"": 1}",[]
+SNT-023,Signal servicing,SNT,SEC-04,SNT,5,672,1344,10,True,"{""CREW-SNT"": 1}",[]
